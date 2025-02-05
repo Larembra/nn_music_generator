@@ -1,4 +1,5 @@
 from tensorflow.python.client import device_lib
+import torch
 
 def get_available_devices():
     local_device_protos = device_lib.list_local_devices()
@@ -27,3 +28,5 @@ x = hasattr(Person, 'age')
 print(x)
 y = hasattr(person1, 'age')
 print(y)
+
+print(torch.cuda.is_available())

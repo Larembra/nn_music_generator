@@ -318,8 +318,10 @@ model.load_weights(checkpoint_prefix)
 model.summary()
 
 
-def generate_text(model, start_string, generation_length=1000):
+def generate_text(model, start_string, num_songs):
   # Evaluation step (generating ABC text using the learned RNN model)
+
+
 
   '''TODO: convert the start string to numbers (vectorize)'''
   input_eval = [char2idx[i] for i in start_string]
@@ -336,7 +338,10 @@ def generate_text(model, start_string, generation_length=1000):
       layer.reset_states()
   tqdm._instances.clear()
 
-  for i in tqdm(range(generation_length)):
+
+  progressbar = tqdm(total=num_songs)
+  num_song = 0
+  while num_song < num_songs:
       '''TODO: evaluate the inputs and generate the next character predictions'''
       predictions = model(input_eval)
 
@@ -353,12 +358,21 @@ def generate_text(model, start_string, generation_length=1000):
       '''TODO: add the predicted character to the generated text!'''
       # Hint: consider what format the prediction is in vs. the output
       text_generated.append(idx2char[predicted_id])
+      if (''.join(text_generated))[-2:] == 'X:':
+        num_song+=1
+        progressbar.update(1)
+      if num_song == num_songs:
+        text_generated = text_generated[:-2]
 
   return (start_string + ''.join(text_generated))
 
+
+num_songs = int(input("How many songs do you want?\n"))
+
+
 '''TODO: Use the model and the function defined above to generate ABC format text of length 1000!
     As you may notice, ABC files start with "X" - this may be a good start string.'''
-generated_text = generate_text(model, start_string="X", generation_length=6000)
+generated_text = generate_text(model, start_string="X", num_songs=num_songs)
 
 
 ### Play back generated songs ###
@@ -390,4 +404,3 @@ for i in generated_songs:
 #
 #     # save your song to the Comet interface -- you can access it there
 #     experiment.log_asset(wav_file_path)
-
