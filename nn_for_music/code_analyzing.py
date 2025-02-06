@@ -31,7 +31,7 @@ assert COMET_API_KEY != "", "Please insert your Comet API Key"
 # Download the dataset
 songs = mdl.lab1.load_training_data()
 
-# Print one of the songs to inspect it in greater detail!
+# Print one of the songs_dataset to inspect it in greater detail!
 example_song = songs[0]
 print("\nExample song: ")
 print(example_song)
@@ -42,7 +42,7 @@ print(example_song)
 #mdl.lab1.play_song(example_song)
 
 print()
-# Join our list of song strings into a single string containing all songs
+# Join our list of song strings into a single string containing all songs_dataset
 songs_joined = "\n\n".join(songs)
 
 # Find all unique characters in the joined string
@@ -75,7 +75,7 @@ for char,_ in zip(char2idx, range(83)): #с помощью zip в цикле и�
     #repr() возвращает строковое представление символа, обычно заключённое в кавычки, что может помочь при отладке (например, различать пробелы, символы переноса и т.д.).
 print('  ...\n}') #ставит многоточие, переходит на новую строку и в новой строке ставит "}".
 #
-# '''TODO: Write a function to convert the all songs string to a vectorized
+# '''TODO: Write a function to convert the all songs_dataset string to a vectorized
 #     (i.e., numeric) representation. Use the appropriate mapping
 #     above to convert from vocab characters to the corresponding indices.
 #
@@ -101,7 +101,7 @@ print(len(songs_joined), len(vectorized_songs))
 # print(tf.shape(vectorized_songs))
 #Здесь tf.shape(tensor) возвращает тензор с формой (1,), содержащий значение [200679]
 def get_batch(vectorized_songs, seq_length, batch_size):
-  # the length of the vectorized songs string
+  # the length of the vectorized songs_dataset string
   n = vectorized_songs.shape[0] - 1
   # randomly choose the starting indices for the examples in the training batch
   idx = np.random.choice(n-seq_length, batch_size) #idx - массив случайных чисел принадлежащих [0, n-seq_length)
@@ -420,7 +420,7 @@ def generate_text(model, start_string, generation_length=1000):
 generated_text = generate_text(model, start_string="X", generation_length=6000)
 
 
-### Play back generated songs ###
+### Play back generated songs_dataset ###
 
 generated_songs = mdl.lab1.extract_song_snippet(generated_text)
 #mdl.lab1.extract_song_snippet() выводит список мелодий, найденных в сгенерированном тексте.

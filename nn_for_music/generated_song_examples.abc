@@ -1,0 +1,78 @@
+X:74
+T:Coctoling Masiss's
+Z: id:dc-reel-383
+M:C
+L:1/8
+K:A Dorian
+ABA A2B|cBA B2G|EED G2A|BAB d2B|!
+A2E E2A|BAG ABc|d3 d2e|d3:|!
+g2e B2A|ded B2A|d2B cBA|B2G E2D|!
+E2B BAG|B2A A2B|A2B cBA|B3 AGF|E3 E2:|!
+
+
+
+X:257
+T:Movin Browe
+Z: id:dc-reel-262
+M:C
+L:1/8
+K:A Major
+A2cA B2AF|E3F ABce|a2ge faec|cBBA B2cB|!
+A2cA B2AF|E3F ABce|a2ge faec|BABc A4:|!
+E2GE BEGE|A2cA eAcA|B2^dB fBdB|e2ge bege|!
+agae faec|defa gfef|dcde fedc|d3e d2:|!
+
+
+
+X:60
+T:Croley's
+Z: id:dc-hornpipe-14
+M:C|
+L:1/8
+K:D Major
+AG|FDFA dfaf|gfec dcBA|G2BG F2AF|EDEF GBAG|!
+FDFA dfaf|gfec dcBA|dfaf bgec|d2dc d2:|!
+(3ABc|d2fd c2ec|BABc dBAF|G2BG F2AF|EDEF GBAG|!
+FDFA dfaf|gfec dcBA|dfaf bgec|d2dc d2:|!
+
+
+
+X:160
+T:Trip to Slion
+Z: id:dc-jig-136
+M:6/8
+L:1/8
+K:D Major
+A|FAA GBB|Ade fed|cdc ABc|dfe dAG|!
+FAA GBB|Ade fed|cdc ABc|dfe d2:|!
+c|dBB fBB|fgf fed|cAA eAA|a^ga edc|!
+dBB fBB|fgf fed|cdc ABc|dfe d2:|!
+
+
+
+X:261
+T:New Copperplate
+Z: id:dc-reel-241
+M:C
+L:1/8
+K:G Major
+cAFA|G2dG BGdG|G2dG BGGB|A2eA cAeA|A2eB cAFA|!
+G2dG BGdG|G2dG BGGB|ABcd efgb|aged:|!
+^cdef|g2gf gfef|gedc BGG2|eaag ageg|aged ^cdef|!
+g2gf gbaf|gedc BGGB|ABcd efgb|aged:|!
+
+
+
+X:93
+T:McClellan's
+Z: id:dc-jig-75
+M:6/8
+L:1/8
+K:D Major
+A|d3 dfd|e3 eag|fed ABc|dAF DFA|!
+d3 dfd|e3 eag|fed ABc|dfe d2:|!
+f|g3 bag|f3 agf|e3 ABc|dfe def|!
+g3 bag|f3 agf|e3 ABc|dfe d2:|!
+
+
+

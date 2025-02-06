@@ -1,12 +1,10 @@
 import comet_ml
-# TODO: ENTER YOUR API KEY HERE!! instructions above
+
 COMET_API_KEY = "XV8FvjQvEZcZdYJvBlbIUyjJr"
 
 # Import Tensorflow 2.0
 import tensorflow as tf
 
-# Download and import the MIT Introduction to Deep Learning package
-# !pip install mitdeeplearning --quiet
 
 import mitdeeplearning as mdl
 
@@ -20,34 +18,20 @@ from tqdm import tqdm
 from scipy.io.wavfile import write
 
 
-# TODO: !apt-get install abcmidi timidity > /dev/null 2>&1
-
-# Check that we are using a GPU, if not switch runtimes
-#   using Runtime > Change Runtime Type > GPU
-
-# TODO: assert len(tf.config.list_physical_devices('GPU')) > 0
 assert COMET_API_KEY != "", "Please insert your Comet API Key"
 
 # Download the dataset
 songs = mdl.lab1.load_training_data()
 
-# Print one of the songs to inspect it in greater detail!
-example_song = songs[0]
-print("\nExample song: ")
-print(example_song)
 
-# Convert the ABC notation to audio file and listen to it
+# TODO: Я НЕ МОГУ ПРОСЛУШАТЬ ЕЁ, НО Я МОГУ ИСПОЛЬЗОВАТЬ ОНЛАЙН-ПРОИГРЫВАТЕЛИ АВС-НОТАЦИИ!!! В НИХ МОЖНО ВСТАВИТЬ ВЕСЬ ТЕКСТ, КОТОРЫЙ ВЫВОДИТСЯ НЕЙРОСЕТЬЮ
 
-# TODO: Я НЕ МОГУ ПРОСЛУШАТЬ ЕЁ, НО Я МОГУ ИСПОЛЬЗОВАТЬ ОНЛАЙН-ПРОИГРЫВАТЕЛИ АВС-НОТАЦИИ!!! В НИХ МОЖНО ВСТАВИТЬ ВЕСЬ ТЕКСТ, КОТОРЫЙ ВЫВОДИТСЯ print(example_song)
-#mdl.lab1.play_song(example_song)
-
-print()
-# Join our list of song strings into a single string containing all songs
+# Join our list of song strings into a single string containing all songs_dataset
 songs_joined = "\n\n".join(songs)
 
 # Find all unique characters in the joined string
 vocab = sorted(set(songs_joined))
-print("There are", len(vocab), "unique characters in the dataset")
+# print("There are", len(vocab), "unique characters in the dataset")
 
 ### Define numerical representation of text ###
 
@@ -55,22 +39,22 @@ print("There are", len(vocab), "unique characters in the dataset")
 # For example, to get the index of the character "d",
 #   we can evaluate `char2idx["d"]`.
 char2idx = {u:i for i, u in enumerate(vocab)}
-print(char2idx)
-print()
+# print(char2idx)
+# print()
 # Create a mapping from indices to characters. This is
 #   the inverse of char2idx and allows us to convert back
 #   from unique index to the character in our vocabulary.
 idx2char = np.array(vocab)
-print(idx2char)
-print()
+# print(idx2char)
+# print()
 
 
-print('{')
-for char,_ in zip(char2idx, range(83)):
-    print('  {:4s}: {:3d},'.format(repr(char), char2idx[char]))
-print('  ...\n}')
+# print('{')
+# for char,_ in zip(char2idx, range(83)):
+#     print('  {:4s}: {:3d},'.format(repr(char), char2idx[char]))
+# print('  ...\n}')
 
-'''TODO: Write a function to convert the all songs string to a vectorized
+'''TODO: Write a function to convert the all songs_dataset string to a vectorized
     (i.e., numeric) representation. Use the appropriate mapping
     above to convert from vocab characters to the corresponding indices.
 
@@ -83,16 +67,16 @@ def vectorize_string(string):
   return np.array([char2idx[char] for char in string])
 
 vectorized_songs = vectorize_string(songs_joined)
-print ('{} ---- characters mapped to int ----> {}'.format(repr(songs_joined[:10]), vectorized_songs[:10]))
+# print ('{} ---- characters mapped to int ----> {}'.format(repr(songs_joined[:10]), vectorized_songs[:10]))
 # check that vectorized_songs is a numpy array
-assert isinstance(vectorized_songs, np.ndarray), "returned result should be a numpy array"
+# assert isinstance(vectorized_songs, np.ndarray), "returned result should be a numpy array"
 #print(len(songs_joined), len(vectorized_songs))
 
 
 ### Batch definition to create training examples ###
 
 def get_batch(vectorized_songs, seq_length, batch_size):
-  # the length of the vectorized songs string
+  # the length of the vectorized songs_dataset string
   n = vectorized_songs.shape[0] - 1
   # randomly choose the starting indices for the examples in the training batch
   idx = np.random.choice(n-seq_length, batch_size)
@@ -110,21 +94,21 @@ def get_batch(vectorized_songs, seq_length, batch_size):
 
 
 # Perform some simple tests to make sure your batch function is working properly!
-test_args = (vectorized_songs, 10, 2)
-if not mdl.lab1.test_batch_func_types(get_batch, test_args) or \
-   not mdl.lab1.test_batch_func_shapes(get_batch, test_args) or \
-   not mdl.lab1.test_batch_func_next_step(get_batch, test_args):
-   print("======\n[FAIL] could not pass tests")
-else:
-   print("======\n[PASS] passed all tests!")
+# test_args = (vectorized_songs, 10, 2)
+# if not mdl.lab1.test_batch_func_types(get_batch, test_args) or \
+#    not mdl.lab1.test_batch_func_shapes(get_batch, test_args) or \
+#    not mdl.lab1.test_batch_func_next_step(get_batch, test_args):
+#    print("======\n[FAIL] could not pass tests")
+# else:
+#    print("======\n[PASS] passed all tests!")
 
 
-x_batch, y_batch = get_batch(vectorized_songs, seq_length=5, batch_size=1)
-
-for i, (input_idx, target_idx) in enumerate(zip(np.squeeze(x_batch), np.squeeze(y_batch))):
-    print("Step {:3d}".format(i))
-    print("  input: {} ({:s})".format(input_idx, repr(idx2char[input_idx])))
-    print("  expected output: {} ({:s})".format(target_idx, repr(idx2char[target_idx])))
+# x_batch, y_batch = get_batch(vectorized_songs, seq_length=5, batch_size=1)
+#
+# for i, (input_idx, target_idx) in enumerate(zip(np.squeeze(x_batch), np.squeeze(y_batch))):
+#     print("Step {:3d}".format(i))
+#     print("  input: {} ({:s})".format(input_idx, repr(idx2char[input_idx])))
+#     print("  expected output: {} ({:s})".format(target_idx, repr(idx2char[target_idx])))
 
 
 
@@ -163,24 +147,24 @@ def build_model(vocab_size, embedding_dim, rnn_units, batch_size):
 
 # Build a simple model with default hyperparameters. You will get the
 #   chance to change these later.
-model = build_model(len(vocab), embedding_dim=256, rnn_units=1024, batch_size=32)
-model.build(tf.TensorShape([32, 100]))  # [batch_size, sequence_length]
+# model = build_model(len(vocab), embedding_dim=256, rnn_units=1024, batch_size=32)
+# model.build(tf.TensorShape([32, 100]))  # [batch_size, sequence_length]
 
 
-model.summary()
-
-x, y = get_batch(vectorized_songs, seq_length=100, batch_size=32)
-pred = model(x)
-print("Input shape:      ", x.shape, " # (batch_size, sequence_length)")
-print("Prediction shape: ", pred.shape, "# (batch_size, sequence_length, vocab_size)")
-
-sampled_indices = tf.random.categorical(pred[0], num_samples=1)
-sampled_indices = tf.squeeze(sampled_indices,axis=-1).numpy()
-#sampled_indices
-
-print("Input: \n", repr("".join(idx2char[x[0]])))
-print()
-print("Next Char Predictions: \n", repr("".join(idx2char[sampled_indices])))
+# model.summary()
+#
+# x, y = get_batch(vectorized_songs, seq_length=100, batch_size=32)
+# pred = model(x)
+# print("Input shape:      ", x.shape, " # (batch_size, sequence_length)")
+# print("Prediction shape: ", pred.shape, "# (batch_size, sequence_length, vocab_size)")
+#
+# sampled_indices = tf.random.categorical(pred[0], num_samples=1)
+# sampled_indices = tf.squeeze(sampled_indices,axis=-1).numpy()
+# #sampled_indices
+#
+# print("Input: \n", repr("".join(idx2char[x[0]])))
+# print()
+# print("Next Char Predictions: \n", repr("".join(idx2char[sampled_indices])))
 
 
 
@@ -192,10 +176,10 @@ def compute_loss(labels, logits):
 
 '''TODO: compute the loss using the true next characters from the example batch
     and the predictions from the untrained model several cells above'''
-example_batch_loss = compute_loss(y, pred) # TODO
-
-print("Prediction shape: ", pred.shape, " # (batch_size, sequence_length, vocab_size)")
-print("scalar_loss:      ", example_batch_loss.numpy().mean())
+# example_batch_loss = compute_loss(y, pred) # TODO
+#
+# print("Prediction shape: ", pred.shape, " # (batch_size, sequence_length, vocab_size)")
+# print("scalar_loss:      ", example_batch_loss.numpy().mean())
 
 
 ### Hyperparameter setting and optimization ###
@@ -315,54 +299,61 @@ model = build_model(len(vocab), params['embedding_dim'], params['rnn_units'], ba
 model.build(tf.TensorShape([1, None]))
 model.load_weights(checkpoint_prefix)
 
-model.summary()
+# model.summary()
 
 
 def generate_text(model, start_string, num_songs):
-  # Преобразуем стартовую строку в числовое представление
-  input_eval = [char2idx[i] for i in start_string]
-  input_eval = tf.expand_dims(input_eval, 0)  # Форма: (1, len(start_string))
+  # Evaluation step (generating ABC text using the learned RNN model)
 
-  # Список для накопления сгенерированного текста (после стартовой строки)
+
+
+  '''TODO: convert the start string to numbers (vectorize)'''
+  input_eval = [char2idx[i] for i in start_string]
+  input_eval = tf.expand_dims(input_eval, 0)
+
+  # Empty string to store our results
   text_generated = []
 
-  # Сброс состояний LSTM-слоёв модели, чтобы начать генерацию "с чистого листа"
+  # Here batch size == 1
+  #model.reset_states()
+  # Reset states of LSTM layers in the model
   for layer in model.layers:
     if isinstance(layer, tf.keras.layers.LSTM):
       layer.reset_states()
   tqdm._instances.clear()
 
-  # Количество сгенерированных песен (определяем по количеству маркеров "\nX:")
-  songs_found = start_string.count("\nX:")  # Если стартовая строка уже содержит маркер
 
-  # Генерируем символы, пока не будет достигнуто требуемое число песен
-  while songs_found < num_songs:
-    # Получаем предсказания модели для текущего входа
-    predictions = model(input_eval)
-    # Убираем размерность батча: из (1, seq_length, vocab_size) получаем (seq_length, vocab_size)
-    predictions = tf.squeeze(predictions, 0)
-    # Выбираем следующий символ с помощью стохастической выборки (multinomial sampling)
-    predicted_id = tf.random.categorical(predictions, num_samples=1)[-1, 0].numpy()
-    # Обновляем вход: подаем в модель сгенерированный символ в виде батча размером 1
-    input_eval = tf.expand_dims([predicted_id], 0)
-    # Добавляем выбранный символ в список сгенерированного текста
-    text_generated.append(idx2char[predicted_id])
+  progressbar = tqdm(total=num_songs)
+  num_song = 0
+  while num_song < num_songs:
+      '''TODO: evaluate the inputs and generate the next character predictions'''
+      predictions = model(input_eval)
 
-    # Формируем текущий сгенерированный текст
-    generated_text = start_string + ''.join(text_generated)
-    # Подсчитываем количество песен по маркеру "\nX:" (предполагается, что каждая песня начинается с новой строки и "X:")
-    songs_found = generated_text.count("\nX:")
+      # Remove the batch dimension
+      predictions = tf.squeeze(predictions, 0)
 
-  # Если генерация завершилась на маркере песни, можно удалить его (если не нужен)
-  if generated_text.endswith("\nX:"):
-    generated_text = generated_text[:-3]
+      temperature = 0.8
+      predictions = predictions / temperature
+      '''TODO: use a multinomial distribution to sample'''
+      predicted_id = tf.random.categorical(predictions, num_samples=1)[-1,0].numpy()
 
-  return generated_text
+      # Pass the prediction along with the previous hidden state
+      #   as the next inputs to the model
+      input_eval = tf.expand_dims([predicted_id], 0)
+
+      '''TODO: add the predicted character to the generated text!'''
+      # Hint: consider what format the prediction is in vs. the output
+      text_generated.append(idx2char[predicted_id])
+      if (''.join(text_generated))[-2:] == 'X:':
+        num_song+=1
+        progressbar.update(1)
+      if num_song == num_songs:
+        text_generated = text_generated[:-2]
+
+  return (start_string + ''.join(text_generated))
 
 
-# Пример вызова функции:
 num_songs = int(input("How many songs do you want?\n"))
-
 
 
 '''TODO: Use the model and the function defined above to generate ABC format text of length 1000!
@@ -370,7 +361,7 @@ num_songs = int(input("How many songs do you want?\n"))
 generated_text = generate_text(model, start_string="X", num_songs=num_songs)
 
 
-### Play back generated songs ###
+### Play back generated songs_dataset ###
 
 generated_songs = mdl.lab1.extract_song_snippet(generated_text)
 
