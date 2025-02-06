@@ -332,6 +332,8 @@ def generate_text(model, start_string, num_songs):
       # Remove the batch dimension
       predictions = tf.squeeze(predictions, 0)
 
+      temperature = 0.8
+      predictions = predictions / temperature
       '''TODO: use a multinomial distribution to sample'''
       predicted_id = tf.random.categorical(predictions, num_samples=1)[-1,0].numpy()
 
@@ -351,7 +353,7 @@ def generate_text(model, start_string, num_songs):
   return (start_string + ''.join(text_generated))
 
 
-num_songs = int(input("How many songs_dataset do you want?\n"))
+num_songs = int(input("How many songs do you want?\n"))
 
 
 '''TODO: Use the model and the function defined above to generate ABC format text of length 1000!
