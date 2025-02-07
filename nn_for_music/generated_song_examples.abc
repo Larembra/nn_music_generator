@@ -1,26 +1,13 @@
-X:74
-T:Coctoling Masiss's
-Z: id:dc-reel-383
+X:24
+T:Jash of Mount Driny
+Z: id:dc-ocarolan-20
 M:C
 L:1/8
-K:A Dorian
-ABA A2B|cBA B2G|EED G2A|BAB d2B|!
-A2E E2A|BAG ABc|d3 d2e|d3:|!
-g2e B2A|ded B2A|d2B cBA|B2G E2D|!
-E2B BAG|B2A A2B|A2B cBA|B3 AGF|E3 E2:|!
-
-
-
-X:257
-T:Movin Browe
-Z: id:dc-reel-262
-M:C
-L:1/8
-K:A Major
-A2cA B2AF|E3F ABce|a2ge faec|cBBA B2cB|!
-A2cA B2AF|E3F ABce|a2ge faec|BABc A4:|!
-E2GE BEGE|A2cA eAcA|B2^dB fBdB|e2ge bege|!
-agae faec|defa gfef|dcde fedc|d3e d2:|!
+K:D Major
+AG|F2Ad fdAF|G2Bd gdBG|F2Ad fdAF|E2Ac ecAG|!
+F2Ad fdAF|G2Bd gbag|fafd egec|d2f2 d2:|!
+fg|a2fd Adfa|g2ec Aceg|a2fd Adgf|(3efe (3dcB A2fg|!
+a2fd Adfa|gfef gbaf|gfef gbag|fgec d2:|!
 
 
 
@@ -37,16 +24,17 @@ FDFA dfaf|gfec dcBA|dfaf bgec|d2dc d2:|!
 
 
 
-X:160
-T:Trip to Slion
-Z: id:dc-jig-136
+X:32
+T:Weaver's
+Z: id:dc-slide-33
 M:6/8
 L:1/8
 K:D Major
-A|FAA GBB|Ade fed|cdc ABc|dfe dAG|!
-FAA GBB|Ade fed|cdc ABc|dfe d2:|!
-c|dBB fBB|fgf fed|cAA eAA|a^ga edc|!
-dBB fBB|fgf fed|cdc ABc|dfe d2:|!
+g|fed B2d|A2d F2B|A2F D2F|E3 E2g|!
+fed B2d|A2d F2B|A2F EFE|D3 D2:|!
+e|fdf a3|baf a3|fdf a2f|g3 f2e|!
+[1 fdf a3|baf a3|fdf a2f|d3 d2:|!
+[2 faf efe|ded BdB|ABA GFE|D3 D2|]!
 
 
 
@@ -76,3 +64,41 @@ g3 bag|f3 agf|e3 ABc|dfe d2:|!
 
 
 
+X:7
+T:Breeches Full of Stitches
+Z: id:dc-polka-6
+M:2/4
+L:1/8
+K:A Major
+A>B cA|BA cA|A>B cA|BA F2|!
+A>B cA|BA ce|A>B AF|FE E2:|!
+e>f ec|BA Bc|e>f ec|BA F2|!
+e>f ec|BA Bc|A>B AF|FE E2:|!
+
+
+
+X:33
+T:High Level
+Z: id:dc-hornpipe-30
+M:C|
+L:1/8
+K:D Major
+fe|dAFA DAFA|d2ec dcBc|A2ce A2ce|fdec dcBA|!
+dAFA DAFA|d2ec dcBA|gfgb afdf|eABc d2:|!
+B=c|dgg2 bgg2|dgbg agfe|A2ce A2ce|fdec dcBA|!
+dgg2 bgg2|dgbg agef|gfgb afdf|eABc d2:|!
+
+
+
+X:38
+T:Crain's Nest
+Z: id:dc-jig-92
+M:6/8
+L:1/8
+K:G Major
+F|G2g gfg|agf g2e|dBB B2e|dBB B2A|!
+G2g gfg|agf g2e|dBA A2e|dBA A2:|!
+F|GBB gBB|aBB bBB|dBB B2e|dBB B2A|!
+GBB gBB|aBB bBB|dBA A2e|dBA A2:|!
+a|bag agf|gfe efg|dBB B2e|dBB Bga|!
+bag agf|gfe efg|dBA A2e|dBA A2:|!
