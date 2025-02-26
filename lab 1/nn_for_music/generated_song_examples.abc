@@ -1,0 +1,66 @@
+X:24
+T:Jash of Mount Driny
+Z: id:dc-ocarolan-20
+M:C
+L:1/8
+K:D Major
+AG|F2Ad fdAF|G2Bd gdBG|F2Ad fdAF|E2Ac ecAG|!
+F2Ad fdAF|G2Bd gbag|fafd egec|d2f2 d2:|!
+fg|a2fd Adfa|g2ec Aceg|a2fd Adgf|(3efe (3dcB A2fg|!
+a2fd Adfa|gfef gbaf|gfef gbag|fgec d2:|!
+
+
+
+X:60
+T:Croley's
+Z: id:dc-hornpipe-14
+M:C|
+L:1/8
+K:D Major
+AG|FDFA dfaf|gfec dcBA|G2BG F2AF|EDEF GBAG|!
+FDFA dfaf|gfec dcBA|dfaf bgec|d2dc d2:|!
+(3ABc|d2fd c2ec|BABc dBAF|G2BG F2AF|EDEF GBAG|!
+FDFA dfaf|gfec dcBA|dfaf bgec|d2dc d2:|!
+
+
+
+X:32
+T:Weaver's
+Z: id:dc-slide-33
+M:6/8
+L:1/8
+K:D Major
+g|fed B2d|A2d F2B|A2F D2F|E3 E2g|!
+fed B2d|A2d F2B|A2F EFE|D3 D2:|!
+e|fdf a3|baf a3|fdf a2f|g3 f2e|!
+[1 fdf a3|baf a3|fdf a2f|d3 d2:|!
+[2 faf efe|ded BdB|ABA GFE|D3 D2|]!
+
+
+
+X:24
+T:Where's the Cat
+Z: id:dc-polka-42
+M:2/4
+L:1/8
+K:A Major
+a2 a>f|ec a>f|ec a>f|ec BA|!
+a2 a>f|ec a2|ce B>c|BA A2:|!
+ce e2|df f2|ce e2|cB B2|!
+ce e2|df f2|ce B>c|BA A2:|!
+
+
+
+X:33
+T:High Level
+Z: id:dc-hornpipe-30
+M:C|
+L:1/8
+K:D Major
+fe|dAFA DAFA|d2ec dcBc|A2ce A2ce|fdec dcBA|!
+dAFA DAFA|d2ec dcBA|gfgb afdf|eABc d2:|!
+B=c|dgg2 bgg2|dgbg agfe|A2ce A2ce|fdec dcBA|!
+dgg2 bgg2|dgbg agef|gfgb afdf|eABc d2:|!
+
+
+
