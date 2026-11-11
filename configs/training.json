@@ -1,0 +1,9 @@
+{
+  "batch_size": 16,
+  "sequence_length": 500,
+  "embedding_dim": 256,
+  "rnn_units": 1024,
+  "learning_rate": 0.001,
+  "iterations": 3000,
+  "checkpoint_every": 100
+}
